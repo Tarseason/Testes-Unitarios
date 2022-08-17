@@ -9,8 +9,22 @@
     - average([2, 2]) // Retorno: 2;
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
-*/ //apagadepois
+*/
 
-const average = () => {};
+const average = (array) => {
+  // let media = 0;
+  let numeros = 0;
+  if (array.length === 0) {
+    return undefined;
+  }
+  for (let t = 0; t < array.length; t += 1) {
+    if (typeof array[t] !== 'number') {
+      return undefined;
+    } 
+    numeros += array[t]; 
+  } 
+  let media = Math.round(numeros / array.length);
+  return media;  
+};
 
 module.exports = average;

@@ -30,14 +30,26 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se productDetails é uma função.
-    // Teste se o retorno da função é um array.
-    // Teste se o array retornado pela função contém dois itens dentro.
-    // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    // Teste se os dois productIds terminam com 123.
-  });
+  it('Teste se productDetails é uma função.', () => {
+    expect(typeof productDetails).toEqual('function');
+  })
+  it('Teste se o retorno da função é um array', () => {
+    expect([].productDetails === 'Array').toBe(false)
+  })
+  it('Teste se o array retornado pela função contem dois itens dentro', () => {
+    expect(Object.keys(productDetails()).length).toEqual(2)
+  })
+  it('Teste se os dois itens dentro do array retornado pela função sao objeto', () => {
+    expect(typeof productDetails()).toBe('object')
+  })
+  it('Teste se os dois parametros igual passados retornam objetos iguais', () => {
+    expect(productDetails('Desinfetante', 'Sabonete')).not.toBe()
+  })
+  it('Teste se os dois productIds terminam com 123', () => {
+    expect(productDetails('Desinfetante', 'Sabonete')[0].details.productId).toBe('Desinfetante123');
+    expect(productDetails('Desinfetante', 'Sabonete')[1].details.productId).toEqual('Sabonete123')
+  })
 });
+
+// Segundo test refencia a seguir.
+// https://pt.stackoverflow.com/questions/77190/como-saber-se-um-objeto-%C3%A9-um-array-em-javascript-sem-jquery#:~:text=O%20m%C3%A9todo%20Array.,e%20false%20se%20n%C3%A3o%20%C3%A9.
